@@ -16,7 +16,11 @@ footer_text: >
   Built with <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a>.
 keywords: Jinghao Liu, robot learning, world model, vision-language-action, robot manipulation, UC San Diego, University of Washington
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🦾 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+# A plain W set in UW's official purple (#4b2e83) — deliberately NOT the
+# university's stylized W, which is a registered trademark licensed for official
+# use. Swap in the real mark only with permission. A .png here also serves as the
+# apple-touch-icon, so no separate apple_touch_icon is needed.
+icon: favicon.png # emoji, or an image name in /assets/img/
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.
 
 url: https://jasonhistoria.github.io # the base hostname & protocol for your site
