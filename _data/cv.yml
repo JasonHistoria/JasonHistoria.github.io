@@ -1,0 +1,61 @@
+# Drives the /cv/ page (rendercv format). Sections render in the order below.
+# YAML gotcha: any unquoted value containing ": " breaks the build. Quote it.
+cv:
+  name: Jinghao Liu
+  label: Incoming MS student in Computer Science, UC San Diego
+  email: jliu63@cs.washington.edu
+  location: San Diego, CA
+  image: ""
+  summary: >
+    Robot learning — world models and vision-language-action policies that
+    generalize across embodiments, sensors, and compute budgets.
+
+  social_networks:
+    - network: GitHub
+      username: JasonHistoria
+
+  sections:
+    Education:
+      - institution: University of California San Diego
+        location: San Diego, CA, US
+        url: https://cse.ucsd.edu/
+        area: Computer Science
+        studyType: MS
+        start_date: 2026
+        end_date: 2028 # <-- CHECK: guessed a 2-year MSCS. A bare "TODO" here renders
+        highlights: #     literally on the page and breaks the sort order, so it needs a year.
+          - "Robot learning with [Xiaolong Wang](https://xiaolonw.github.io/)."
+
+      - institution: University of Washington
+        location: Seattle, WA, US
+        url: https://www.cs.washington.edu/
+        area: Computer Science
+        studyType: BS
+        start_date: 2022 # <-- CHECK: guessed a 4-year BS ending 2026.
+        end_date: 2026
+        highlights:
+          - "Paul G. Allen School of Computer Science & Engineering."
+
+    # Commented out so the CV page never ships visible "TODO" text. Uncomment and
+    # fill in if you want research/internship experience listed.
+    #
+    # Experience:
+    #   - company: lab or company
+    #     position: Undergraduate Researcher
+    #     location: Seattle, WA
+    #     start_date: 2025
+    #     end_date: 2026
+    #     summary: One sentence on what you worked on.
+
+    # Uncomment any section below that you want on the CV page.
+    #
+    # Awards:
+    #   - title: TODO
+    #     date: 2026
+    #     awarder: TODO
+    #     summary: TODO
+    #
+    # Skills:
+    #   - name: Languages & tools
+    #     icon: fa-solid fa-code
+    #     keywords: "Python, PyTorch, JAX, C++, CUDA, ROS"

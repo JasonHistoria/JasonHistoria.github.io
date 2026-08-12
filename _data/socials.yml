@@ -1,0 +1,11 @@
+# Social links shown under the profile photo and in the footer.
+# Delete any line you do not want an icon for.
+email: jliu63@cs.washington.edu
+github_username: JasonHistoria
+# cv_pdf: /assets/pdf/cv.pdf # uncomment once you drop a PDF at assets/pdf/cv.pdf
+# scholar_userid: TODO # add once you create a Google Scholar profile
+# linkedin_username: TODO
+# x_username: TODO # formerly twitter
+# semanticscholar_id: TODO
+# orcid_id: TODO
+# rss_icon: true # the plugin shows the icon whenever this key EXISTS — `false` does not hide it, you must comment it out

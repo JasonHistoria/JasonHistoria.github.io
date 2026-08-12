@@ -1,0 +1,5 @@
+# Venue badges shown to the left of each publication.
+# The key must match the `abbr` field in _bibliography/papers.bib.
+"arXiv":
+  url: https://arxiv.org/
+  color: "#b31b1b"

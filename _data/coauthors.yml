@@ -1,0 +1,13 @@
+# Co-author homepages. Keys MUST be lower-cased last names without accents.
+# Any co-author listed here gets their name auto-linked in the publication list.
+"yan":
+  - firstname: ["Ge"]
+    url: https://geyan21.github.io/
+
+"fox":
+  - firstname: ["Dieter", "D."]
+    url: https://homes.cs.washington.edu/~fox/
+# TODO: add homepages for Yuzhi Fan, Lei Cai, Minwen Liao, Jesse Zhang, e.g.
+# "zhang":
+#   - firstname: ["Jesse", "J."]
+#     url: https://...
