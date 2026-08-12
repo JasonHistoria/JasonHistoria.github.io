@@ -103,7 +103,7 @@ posts_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+max_width: 820px # narrower than al-folio's 930px — closer to a comfortable measure
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -543,7 +543,10 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      # Was Roboto + Roboto Slab + Material Icons. Neither Roboto Slab nor
+      # Material Icons appears anywhere in the rendered CSS or HTML, so this
+      # loads one variable family instead of three static ones.
+      fonts: "https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap"
   highlightjs:
     integrity:
       css:
