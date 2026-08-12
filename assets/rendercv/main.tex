@@ -1,0 +1,90 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\setlength\parindent{0pt}
+
+% Tighten spacing around section headers to keep the resume on one page.
+% Margin and these values were shaved (0.6in/6pt/3pt -> 0.5in/5pt/2pt) when the
+% Flex-pi results were expanded; without it the last bullet spills to page 2.
+\titlespacing*{\section}{0pt}{5pt}{2pt}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\centerline{\Large \textbf{Jinghao Liu}}
+
+\begin{center}
+\href{mailto:jliu63@uw.edu}{jliu63@uw.edu}
+\hspace{0.3cm} | \hspace{0.3cm} (206) 495-7111
+\hspace{0.3cm} | \hspace{0.3cm}
+\href{https://github.com/JasonHistoria}{github.com/JasonHistoria}
+\hspace{0.3cm} | \hspace{0.3cm}
+\href{https://www.linkedin.com/in/jinghao-liu-2b3b0b34b/}{linkedin.com/in/jinghao-liu}
+\end{center}
+
+\section*{Education}
+\textbf{University of California, San Diego}, La Jolla, CA \hfill \textit{Incoming Sep 2026} \\
+M.S. in Computer Science (CS75) --- joining Prof.\ Xiaolong Wang's lab \\[2pt]
+\textbf{University of Washington}, Seattle, WA \hfill \textit{Expected Jun 2026} \\
+B.S. in Computer Science \hfill \textit{GPA: 3.91}
+
+\section*{Technical Skills}
+\textbf{Programming:} Python, Java, C, C++, C\#, R, JavaScript, HTML/CSS \\
+\textbf{ML/AI:} PyTorch, Hugging Face, LeRobot, Accelerate/DeepSpeed, Diffusion \& Flow models, vLLM, LoRA \\
+\textbf{Tools:} Git, SLURM, VSCode
+
+\section*{Research Experience}
+
+\textbf{University of Washington, Robotics and State Estimation (RSE) Lab} \hfill \textit{Oct 2025 -- Jun 2026} \\
+\textit{Undergraduate Research Assistant, Advised by Prof. Dieter Fox; mentored by Ge Yan} \\
+\textit{Flex-$\pi$: A Multi-Stream World-Action Model with Compute Flexibility} \\
+\textit{Co-first author; under review at \textbf{CoRL 2026}} \hspace{0.2cm}|\hspace{0.2cm} \href{https://arxiv.org/abs/2608.10860}{arXiv:2608.10860} \hspace{0.2cm}|\hspace{0.2cm} \href{https://flex-pi.github.io}{flex-pi.github.io}
+\begin{itemize}[noitemsep,leftmargin=*,topsep=2pt]
+    \item Built and maintain the end-to-end training and closed-loop evaluation pipeline for Flex-$\pi$, a compute-flexible world-action model that embeds RGB, 3D point-maps and DINO semantics in a shared latent space, letting one checkpoint run any combination of input and output streams; reached \textbf{94.6\%} on RoboTwin (50 tasks) and \textbf{99.2\%} on LIBERO.
+    \item Designed a unified 32-DoF end-effector action space (rot6d + per-dataset normalization) bridging heterogeneous embodiments (AgiBot, YAM, DROID, LIBERO), with large-scale DROID/LeRobot data pipelines (metric-depth + 3D point-maps) on multi-GPU HPC clusters.
+    \item Validated on a real bimanual YAM robot across five tasks, averaging \textbf{83.0\%} in distribution and \textbf{76.1\%} out of distribution --- including \textbf{98.8\%} on long-horizon kitchen organization and \textbf{76.0\%} on a dexterous screw-driving repair --- against $\pi_{0.5}$ at 52.1\%, ManiFlow at 58.0\% and Fast-WAM at 31.7\%.
+    \item Earlier, built a 3D pipeline recovering camera trajectories and hand poses from egocentric video (Ego100K) for human-demonstration pretraining; completed, shelved pending compute.
+\end{itemize}
+
+
+\textbf{Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)} \hfill \textit{Jun 2025 -- Oct 2025} \\
+\textit{Research Assistant} \\
+\textit{AI Security Beyond Core Domains: Resume Screening as a Case Study of Adversarial Vulnerabilities in Specialized LLM Applications} \\
+\textit{Manuscript under review at the \textbf{International Journal of Machine Learning and Cybernetics}}
+\begin{itemize}[noitemsep,leftmargin=*,topsep=2pt]
+    \item Built the first benchmark (\textbf{1,000 authentic LinkedIn profiles}, 14 sectors) and a systematic framework to study adversarial robustness of LLM-based resume screening---an unstudied domain in AI safety.
+    \item Defined an attack taxonomy (4 types $\times$ 4 injection positions) and measured cross-model vulnerability via an automated vLLM + SLURM pipeline (\textbf{150k+ evaluations}), exposing $>$80\% attack success.
+    \item Built hybrid prompt-engineering + \textbf{LoRA SFT} defenses, achieving \textbf{2.6$\times$ robustness gain} and \textbf{58.5\% overall mitigation}.
+\end{itemize}
+
+
+\section*{Academic Project Experience}
+
+\textbf{Sentra: AI-Powered Roleplay Chatbot Platform} \hfill \textit{Sep 2024 -- Jun 2025} \\
+\textit{Developer} \hspace{0.2cm}|\hspace{0.2cm} \textit{Advised by Prof. Ren\'e Just} \hspace{0.2cm}|\hspace{0.2cm} \href{https://github.com/Yuzhifur/Sentra-Chatbot}{github.com/Yuzhifur/Sentra-Chatbot}
+\begin{itemize}[noitemsep,leftmargin=*,topsep=2pt]
+    \item Built and led a full-stack roleplay chatbot (\texttt{sentra-4114a.web.app}; React + Firebase) integrating multiple AI models (Claude, Gemini) for real-time streaming responses, with a Cross-Friends Memory system, authentication, AI avatar generation, and 85\%+ Jest coverage via Git/CI-CD.
+\end{itemize}
+
+
+\textbf{Synthetic Image Detectors} \hfill \textit{Oct 2024 -- Dec 2024} \\
+\textit{Team Programmer}
+\begin{itemize}[noitemsep,leftmargin=*,topsep=2pt]
+    \item Evaluated CNN (ResNet-50, GoogleNet, EfficientNet-b0) and transformer (ViT-b/16) robustness against GAN- and diffusion-generated images---finding up to 35\% accuracy drop under texture-based distortions (edge features 40\% more vulnerable than color cues)---and used Grad-CAM to expose architectural differences in background vs.\ texture attention.
+\end{itemize}
+
+
+\section*{Work Experience}
+
+\textbf{Xpeng Robotics Limited} \hfill \textit{Jun 2023 -- Sep 2023} \\
+\textit{Product Department Intern, Shenzhen}
+\begin{itemize}[noitemsep,leftmargin=*,topsep=2pt]
+    \item Conducted market research on 15+ robotic products (two competitive analysis reports) and worked with a cross-functional team to translate two product requirements into technically feasible solutions and prototype projects.
+\end{itemize}
+
+
+\end{document}
