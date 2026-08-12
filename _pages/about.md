@@ -7,7 +7,7 @@ subtitle: Incoming MS in Computer Science, <a href="https://cse.ucsd.edu/">UC Sa
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false
+  image_circular: true
   more_info: # office / address block — left empty on purpose
 
 selected_papers: true # lists papers marked selected={true} in papers.bib

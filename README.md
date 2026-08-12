@@ -14,20 +14,45 @@ for the `bundler 4.x` this lockfile needs) and has no dev headers, and this user
 is not in the `docker` group so the upstream `docker compose up` path is closed.
 `serve.sh` documents the one-time env setup at the top if the env goes missing.
 
+## The CV
+
+The PDF at `assets/pdf/cv.pdf` is **built from `assets/rendercv/main.tex`** — plain
+LaTeX, not rendercv's YAML format despite the directory name. After editing the
+`.tex`, rebuild and reinstall the PDF:
+
+```sh
+cd assets/rendercv
+pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex
+cp main.pdf ../pdf/cv.pdf && rm -f main.aux main.log main.out main.pdf
+```
+
+It is tuned to fit on **one page**; the margin and `\titlespacing` in the preamble
+are what hold it there. Adding a bullet will usually spill to page 2 — check the
+page count before committing.
+
+## Design overrides
+
+The visual changes to stock al-folio live in exactly two files:
+
+- `_sass/_custom.scss` — all of them. Accent colour, link/focus treatment,
+  publication chips, section rules, reduced-motion guard. Commented per block.
+- `assets/css/main.scss` — a shadow of the gem's entry point, byte-identical
+  except for one added `@use "custom"` line at the end.
+
+On upgrading `al_folio_core`, diff `assets/css/main.scss` against the gem's copy
+in `vendor/bundle/ruby/*/gems/al_folio_core-*/assets/css/main.scss` and re-apply
+that one line if the entry point changed. Nothing else is shadowed.
+
 ## Still to do
 
-| Where | What | Blocks launch? |
-| --- | --- | --- |
-| `assets/img/prof_pic.jpg` | Your photo, square crop. Currently a grey "JL" monogram placeholder. | no, but obvious |
-| `_data/cv.yml` | Two years marked `<-- CHECK` are guesses: UW `start_date: 2022`, UCSD `end_date: 2028`. | no |
-| `_pages/misc.md` | Write a few lines, then set `nav: true`. Hidden from the nav until you do. | no |
-| `_data/cv.yml` | `Experience:` section is commented out — uncomment and fill in if you want it. | no |
-| `assets/pdf/cv.pdf` | Add a CV PDF, then uncomment `cv_pdf:` in `_data/socials.yml` and `_pages/cv.md`. | no |
-| `_bibliography/papers.bib` | Add `code = {...}` when the Flex-π repo goes public. | no |
-| `_data/socials.yml` | `scholar_userid` once you create a Google Scholar profile. | no |
-| `_data/coauthors.yml` | Homepages for Yuzhi Fan, Lei Cai, Minwen Liao, Jesse Zhang — they get auto-linked. | no |
-
-Nothing above blocks the site from going live correctly.
+| Where | What |
+| --- | --- |
+| `_data/cv.yml` | Two years marked `<-- CHECK` are guesses: UW `start_date: 2022`, UCSD `end_date: 2028`. |
+| `_pages/misc.md` | Write a few lines, then set `nav: true`. Hidden from the nav until you do. |
+| `_data/cv.yml` | `Experience:` section is commented out — the LaTeX CV has the content if you want to mirror it. |
+| `_bibliography/papers.bib` | Add `code = {...}` when the Flex-π repo goes public. |
+| `_data/coauthors.yml` | Homepages for Yuzhi Fan, Lei Cai, Minwen Liao, Jesse Zhang — they get auto-linked. |
+| `assets/rendercv/main.tex` | Contact email is `jliu63@uw.edu`; the site uses `jliu63@cs.washington.edu`. Pick one. |
 
 YAML gotcha: an unquoted value containing `: ` breaks the build, and the error
 does not name the file. Write `label: "Foo: bar"`, not `label: Foo: bar`.

@@ -2,10 +2,10 @@
 # Delete any line you do not want an icon for.
 email: jliu63@cs.washington.edu
 github_username: JasonHistoria
-# cv_pdf: /assets/pdf/cv.pdf # uncomment once you drop a PDF at assets/pdf/cv.pdf
-# scholar_userid: TODO # add once you create a Google Scholar profile
-# linkedin_username: TODO
-# x_username: TODO # formerly twitter
-# semanticscholar_id: TODO
-# orcid_id: TODO
+scholar_userid: rElSB5AAAAAJ
+x_username: jinghao0115
+cv_pdf: /assets/pdf/cv.pdf
+# linkedin_username: jinghao-liu-2b3b0b34b # uncomment to show a LinkedIn icon
+# semanticscholar_id:
+# orcid_id:
 # rss_icon: true # the plugin shows the icon whenever this key EXISTS — `false` does not hide it, you must comment it out

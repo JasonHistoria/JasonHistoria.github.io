@@ -1,0 +1,176 @@
+/*******************************************************************************
+ * Site-specific overrides.
+ *
+ * Loaded last by assets/css/main.scss, so equal-specificity rules here win.
+ * Nothing gem-owned is copied — this file only redefines tokens and adds rules.
+ * Reference for the visual direction: jianglongye.com (also al-folio).
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * 1. Accent colour
+ *
+ * al-folio ships #b509ac (magenta) for light and #2698ba (cyan) for dark. The
+ * magenta is the single most recognisable "this is an al-folio site" signal and
+ * reads loud next to a photo. These replace it with a deep blue that carries the
+ * same job quietly. Measured contrast, both clear WCAG AA (4.5:1) for body text:
+ *   #1a5fb4 on #ffffff  6.29:1     #16508f hover on #ffffff  8.15:1
+ *   #8ab4f8 on #1c1c1d  8.08:1     (the magenta it replaces was 5.83:1)
+ * -------------------------------------------------------------------------- */
+:root {
+  --global-theme-color: #1a5fb4;
+  --global-hover-color: #16508f;
+  --global-highlight-color: #1a5fb4;
+  --site-accent-soft: rgba(26, 95, 180, 0.09);
+  --site-rule: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #8ab4f8;
+  --global-hover-color: #a8c7fa;
+  --global-highlight-color: #8ab4f8;
+  --site-accent-soft: rgba(138, 180, 248, 0.14);
+  --site-rule: rgba(255, 255, 255, 0.12);
+}
+
+/* -----------------------------------------------------------------------------
+ * 2. Links
+ *
+ * Colour alone is a weak affordance and fails for colour-blind readers. Underline
+ * on hover, offset so it does not collide with descenders.
+ * -------------------------------------------------------------------------- */
+a,
+a:hover {
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.post-content a:not(.btn):not(.no-underline),
+.profile + div a,
+p a:not(.btn) {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.06em;
+}
+
+/* -----------------------------------------------------------------------------
+ * 3. Keyboard focus
+ *
+ * The theme relies on the UA default outline, which is nearly invisible against
+ * the dark navbar. Give every interactive element one consistent ring.
+ * -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--site-accent-soft);
+}
+
+/* -----------------------------------------------------------------------------
+ * 4. Profile photo
+ *
+ * Circular crop (set via _pages/about.md) plus a hairline ring so the photo has
+ * an edge on both light and dark backgrounds instead of bleeding into the page.
+ * -------------------------------------------------------------------------- */
+.profile img {
+  box-shadow: 0 0 0 1px var(--site-rule);
+}
+
+/* -----------------------------------------------------------------------------
+ * 5. Publication entries
+ *
+ * The theme draws every link as a full-bordered pill, so a paper with five links
+ * turns into a row of heavy boxes that out-shouts the title. These keep the hit
+ * target but drop the visual weight to a tinted chip.
+ * -------------------------------------------------------------------------- */
+.publications ol.bibliography li {
+  margin-bottom: 1.6rem;
+
+  .links a.btn {
+    border-color: var(--site-rule);
+    border-radius: 5px;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+
+    &:hover {
+      background-color: var(--site-accent-soft);
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+    }
+  }
+
+  /* The paper title is the thing people scan for — let it lead. */
+  .title {
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Thumbnail: hairline edge, and a small lift on hover so it reads as a link. */
+  .preview {
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px var(--site-rule);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  &:hover .preview {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px var(--site-rule),
+      0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* The about page's section headings ("news", "selected publications") render as
+   bare <h2> inside div.post. The :not([class]) guard keeps this off
+   h2.bibliography, which the theme uses as the year divider on /publications/.
+   A rule gives the page structure without adding another colour. */
+.post h2:not([class]) {
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--site-rule);
+  padding-bottom: 0.4rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1.1rem;
+}
+
+/* -----------------------------------------------------------------------------
+ * 6. News table
+ *
+ * Dates sit in <th scope="row" style="width:20%">. Stop them wrapping and use
+ * tabular figures so the column reads as a column.
+ * -------------------------------------------------------------------------- */
+.news table th[scope="row"] {
+  white-space: nowrap;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -----------------------------------------------------------------------------
+ * 7. Motion
+ *
+ * Everything above is decorative; honour the OS setting.
+ * -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .publications ol.bibliography li:hover .preview {
+    transform: none;
+  }
+}
